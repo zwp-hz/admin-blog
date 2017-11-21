@@ -1,0 +1,74 @@
+.clear { zoom:1; }
+.clear:after { content: "\20"; clear: both; display: block;}
+/* 布局 */
+.g-overflow-hidden {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+
+.g-c-center {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center; 
+}
+
+.g-r-center {
+  display: flex;
+  display: -webkit-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center; 
+}
+
+/* table style */
+.actionBox {
+  padding-bottom: 10px;
+  text-align: right;
+  button {
+    margin-left: 10px;
+  }
+}
+
+.ant-table-wrapper {
+  border-radius: 4px;
+  background-color: #fff;
+  td,th {
+	text-align: center !important;
+  }
+  .ant-btn {
+  	margin-left: 10px;
+  	&:first-child {
+  		margin-left: 0;	
+  	}
+  }
+}
+
+.ant-pagination {
+  margin: 16px 0;
+  text-align: right; 
+}
+
+/* editForm style */
+.editContent {
+    margin-top: 15px;
+    .form {
+        float: left;
+        width: 49%;
+        min-height: 88vh;
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 6px;
+        &:first-child {
+            margin-right: 1%;
+        }
+        &:last-child {
+            margin-left: 1%;
+        }
+    }
+}
