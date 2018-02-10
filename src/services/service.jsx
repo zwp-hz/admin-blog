@@ -84,7 +84,7 @@ class service {
      * 获取七牛资源列表
      */
     getQiniuList(params, success, fail) {
-        ajaxFn('/api/getQiniuList','POST',params,success,fail);
+        ajaxFn('/api/getQiniuList','GET',params,success,fail);
     }
 
     /**
