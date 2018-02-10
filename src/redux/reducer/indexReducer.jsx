@@ -1,6 +1,3 @@
-import { loading, collapsed } from './layoutReducer';
-import { userInfo } from './loginReducer';
-
 /**
  * 文章列表
  * @return
@@ -40,4 +37,4 @@ const tagList = (state = [], action) => {
 	}
 }
 
-export { loading, userInfo, collapsed, articleList, categoryList, tagList };
+export { articleList, categoryList, tagList };
