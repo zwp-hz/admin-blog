@@ -26,6 +26,13 @@ const index = (location, cb) => {
     }, 'index');
 }
 
+// 七牛资源管理
+const qiniuManage = (location, cb) => {
+    require.ensure([], require => {
+        cb(null, require('../containers/qiniu/qiniuManage').default)
+    }, 'qiniuManage');
+}
+
 // 文章列表
 const articleList = (location, cb) => {
     require.ensure([], require => {
@@ -43,22 +50,23 @@ const articleEdit = (location, cb) => {
 // 登录验证.  闭包中请添加next
 const requireAuth = (nextState, replace, next) => {	
 	service.isLogin({}, (res) => {
-       	if (res.code !== 0) {
-       		replace({pathname: '/login'});
-       		next();
-       	} else {
-       		nextState.location.state = res.data;
-       		next();
-       	}
-    }, () => {
-        Message.error('接口请求错误');
-    });
+     	if (res.code !== 0) {
+     		replace({pathname: '/login'});
+     		next();
+     	} else {
+     		nextState.location.state = res.data;
+     		next();
+     	}
+  }, () => {
+      Message.error('接口请求错误');
+  });
 }
 
 const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/index" component={layout}>
 			<IndexRoute name="首页" getComponent={index} onEnter={requireAuth} />
+      <Route name="七牛资源管理" path="/qiniuManage" getComponent={qiniuManage} onEnter={requireAuth} />
 			<Route name="文章列表" path="/article/list" getComponent={articleList} onEnter={requireAuth} />
 			<Route path="/article/edit" getComponent={articleEdit} onEnter={requireAuth} />
 		</Route>

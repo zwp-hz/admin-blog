@@ -64,7 +64,7 @@ const operateArticle = (params) => {
             }
         }, () => {
             Message.error('接口请求错误');
-        })
+        });
     }
 }
 
@@ -91,7 +91,7 @@ const getArticleList = (params,fn) => {
             }
         }, () => {
             Message.error("接口请求错误");
-        })
+        });
     }
 }
 
@@ -110,7 +110,7 @@ const getCategoryList = (params) => {
             }
         }, () => {
             Message.error("接口请求错误");
-        })
+        });
     }
 }
 
@@ -129,8 +129,29 @@ const getTagList = (params) => {
             }
         }, () => {
             Message.error('接口请求错误');
-        })
+        });
     }
 }
 
-export { operateArticle, getArticleList, getCategoryList, getTagList };
+/**
+ * 删除文章评论
+ * @params {articleId} 文章id
+ * @params {commentId} 评论id
+ * @fn    成功回调
+ */
+const deleteComment = (params,fn) => {
+    return dispatch => {
+        service.deleteComment(params, (res) => {
+            if(res.code === 0) {
+                Message.success(res.message);
+                if (fn) fn();
+            } else {
+                Message.error(res.message);
+            }
+        }, () => {
+            Message.error('接口请求错误');
+        });
+    }
+}
+
+export { operateArticle, getArticleList, getCategoryList, getTagList, deleteComment };

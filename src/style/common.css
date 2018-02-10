@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body {
+  font-size: 12px; }
+
 .clear {
   zoom: 1; }
 
@@ -28,12 +31,21 @@
   align-items: center;
   justify-content: center; }
 
+.ant-table {
+  overflow-x: auto !important; }
+  .ant-table .ant-table-content {
+    min-width: 800px; }
+
 /* table style */
 .actionBox {
-  padding-bottom: 10px;
-  text-align: right; }
+  padding: 10px 0; }
+  .actionBox .ant-upload {
+    float: right; }
   .actionBox button {
-    margin-left: 10px; }
+    margin-right: 10px; }
+    .actionBox button:last-child {
+      float: right;
+      margin-right: 0; }
 
 .ant-table-wrapper {
   border-radius: 4px;
@@ -51,6 +63,7 @@
 
 /* editForm style */
 .editContent {
+  min-width: 700px;
   margin-top: 15px; }
   .editContent .form {
     float: left;

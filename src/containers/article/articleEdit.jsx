@@ -44,13 +44,12 @@ class Edit extends Component {
 		// id获取文章数据
 		if (_id) {
 			actions.getArticleList({_id: _id, type: 'edit'},(data) => {
-				let param = data.data[0],
-					fileList = [];
+				let fileList = [];
 
 				// 遍历图片
-				for(let item of param.images_src) {
+				for(let item of data.images_src) {
 					fileList.push({
-						uid: param._id,
+						uid: data._id,
 						name: item,
 						status: 'done',
 						url: 'http://image.zhuweipeng.me/' + item
@@ -61,20 +60,21 @@ class Edit extends Component {
 				this.setState({
 					_id: _id,
 					category: {
-		            	data: param.categories,
+		            	data: data.categories,
 		            	inputVisible: false,
 		            },
 		            tag: {
-		            	data: param.tags,
+		            	data: data.tags,
 		            	inputVisible: false,
 		            },
-					textAreaValue: param.content,
+					textAreaValue: data.content,
 					fileList
 				})
 
 				form.setFieldsValue({
-			      	title: param.title,
-			      	release: param.release
+			      	title: data.title,
+			      	describe: data.describe,
+			      	release: data.release
 			    });
 			});
 		}
@@ -156,11 +156,14 @@ class Edit extends Component {
      * @data {fileList} 	上传文件列表
     */
 	handleUploadChange = ({fileList}) => {
-		let status = fileList[fileList.length - 1].status;
+		console.log(fileList);
+		if (fileList[fileList.length - 1]) {
+			let status = fileList[fileList.length - 1].status;
 
-		if (status === 'error') {
-			fileList.pop();
-			message.error('图片上传失败');
+			if (status === 'error') {
+				fileList.pop();
+				message.error('图片上传失败');
+			}
 		}
 
 		this.setState({fileList});
@@ -193,10 +196,16 @@ class Edit extends Component {
 	      	wrapperCol: { sm: {span: 20}, xs: {span: 18} }
 	    };
 	    const { category, tag, inputValue, fileList, previewVisible, previewImage, textAreaValue } = this.state;
+	    const uploadButton = (
+	      <div>
+	        <Icon type="plus" />
+			<div className="ant-upload-text">Upload</div>
+	      </div>
+	    );
 
 	    return (
-	    	<div className="clear">
-	    		<BreadcrumbCustom 
+	    	<div className="clear" style={{ overflow: 'auto' }} >
+	    		<BreadcrumbCustom
 	    		  breadcrumb={[{
 	    		  	  path: '/article/list',
 	    		  	  breadcrumbName: '文章列表'
@@ -298,12 +307,25 @@ class Edit extends Component {
 					          onPreview={this.handleUploadPreview}
 					          onChange={this.handleUploadChange}
 					        >
-						        <Icon type="plus" />
-						        <div className="ant-upload-text">Upload</div>
+					        	{fileList.length >= 1 ? null : uploadButton}
 					        </Upload>
-					        <Modal visible={previewVisible} footer={null} onCancel={this.handleUploadCancel}>
+					        <Modal 
+					          visible={previewVisible} 
+					          closable={false} 
+					          footer={null} 
+					          onCancel={this.handleUploadCancel}
+					        >
 					          	<img alt="example" style={{ width: '100%' }} src={previewImage} />
 					        </Modal>
+				        </FormItem>
+				        <FormItem
+				          hasFeedback
+				          {...formItemLayout}
+				          label="描述"
+				        >
+				        	{getFieldDecorator('describe',{rules: [{ required: true, message: '描述不能为空！' }] })(
+				        		<Input placeholder="请输入文章描述" />
+				        	)}
 				        </FormItem>
 				        <FormItem
 				          {...formItemLayout}
@@ -359,6 +381,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 			form.validateFieldsAndScroll((err, values) => {
 		    	if (!err) {
 		    		param.title = values.title;
+		    		param.describe = values.describe;
 		    		param.release = values.release;
 		    		// 数据验证
 		    		for (let i in param) {

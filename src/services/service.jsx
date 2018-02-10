@@ -72,6 +72,27 @@ class service {
     getTagList(params, success, fail) {
         ajaxFn('/api/getTagsList','GET',params,success,fail);
     }
+
+    /**
+     * 删除评论
+     */
+    deleteComment(params, success, fail) {
+        ajaxFn('/api/deleteComment','GET',params,success,fail);
+    }
+
+    /**
+     * 获取七牛资源列表
+     */
+    getQiniuList(params, success, fail) {
+        ajaxFn('/api/getQiniuList','POST',params,success,fail);
+    }
+
+    /**
+     * 删除七牛对应空间文件
+     */
+    delete_qiniu(params, success, fail) {
+        ajaxFn('/api/delete_qiniu','POST',params,success,fail);
+    }
 }
 
 // 实例化再导出

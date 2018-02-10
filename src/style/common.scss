@@ -1,3 +1,6 @@
+body {
+  font-size: 12px;
+}
 .clear { zoom:1; }
 .clear:after { content: "\20"; clear: both; display: block;}
 /* 布局 */
@@ -24,12 +27,25 @@
   justify-content: center; 
 }
 
+.ant-table {
+  overflow-x: auto !important;
+  .ant-table-content {
+    min-width: 800px;
+  }
+}
+
 /* table style */
 .actionBox {
-  padding-bottom: 10px;
-  text-align: right;
+  padding: 10px 0;
+  .ant-upload {
+    float: right;
+  }
   button {
-    margin-left: 10px;
+    margin-right: 10px;
+    &:last-child {
+      float: right;
+      margin-right: 0;
+    }
   }
 }
 
@@ -54,6 +70,7 @@
 
 /* editForm style */
 .editContent {
+    min-width: 700px;
     margin-top: 15px;
     .form {
         float: left;

@@ -49,7 +49,13 @@ class Lmenu extends Component {
 			            	<span>用户</span>
 		            	</Link>
 		          	</Menu.Item>
-		          	<SubMenu key="article" title={<span><Icon type="folder" /><span>文章</span></span>}>
+		          	<Menu.Item key="qiniuManage">
+		          		<Link to="/qiniuManage">
+			            	<Icon type="folder" />
+			            	<span>七牛资源管理</span>
+		            	</Link>
+		          	</Menu.Item>
+		          	<SubMenu key="article" title={<span><Icon type="file-text" /><span>文章管理</span></span>}>
 		          		<Menu.Item key="list"><Link to="/article/list">列表</Link></Menu.Item>
 		         	</SubMenu>
 		         	<Menu.Item key="setting">

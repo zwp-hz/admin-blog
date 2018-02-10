@@ -7,7 +7,7 @@ import { Breadcrumb } from 'antd';
  */
 export default class BreadcrumbCustom extends Component {
 	render() {
-		const { breadcrumb } = this.props;
+		const { breadcrumb, changeBreadcrumb } = this.props;
 
 		let routes = [
 			{
@@ -19,7 +19,7 @@ export default class BreadcrumbCustom extends Component {
 
 		const itemRender = (route, params, routes, paths) => {
 		  	const last = routes.indexOf(route) === routes.length - 1;
-		  	return last ? <span>{route.breadcrumbName}</span> : <Link to={route.path}>{route.breadcrumbName}</Link>;
+		  	return last ? <span>{route.breadcrumbName}</span> : <span onClick={() => changeBreadcrumb(route.breadcrumbName)}><Link to={route.path}>{route.breadcrumbName}</Link></span>;
 		}
 
 		return (
