@@ -56,7 +56,7 @@ const delete_qiniu = (params,fn) => {
                 Message.error(res.message);
             }
         }, () => {
-            Message.error('接口请求错误');
+            Message.error("接口请求错误");
         });
     }
 }

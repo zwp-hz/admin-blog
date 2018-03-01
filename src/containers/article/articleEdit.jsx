@@ -385,21 +385,23 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		    		param.release = values.release;
 		    		// 数据验证
 		    		for (let i in param) {
-		    			switch(typeof param[i]) {
-		    				case 'object':
-		    					if (param[i].length <= 0) {
-		    						message.warning(i+'不能为空');
-		    						return
-		    					}
-		    					break;
-		    				case 'string':
-		    					if (!param[i]) {
-		    						message.warning(i+'不能为空');
-		    						return
-		    					}
-		    					break;
-		    				default:
-		    					break;
+		    			if (i !== 'images_src') {
+		    				switch(typeof param[i]) {
+			    				case 'object':
+			    					if (param[i].length <= 0) {
+			    						message.warning(i+'不能为空');
+			    						return
+			    					}
+			    					break;
+			    				case 'string':
+			    					if (!param[i]) {
+			    						message.warning(i+'不能为空');
+			    						return
+			    					}
+			    					break;
+			    				default:
+			    					break;
+			    			}
 		    			}
 		    		}
 

@@ -48,7 +48,7 @@ class App extends Component {
 				actions.getQiniuList({});
 		    });
 	    } else if (info.file.status === 'error') {
-	      message.error('上传失败');
+	      	message.error('上传失败');
 	    }
     }
 
