@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { operateArticle, getArticleList, deleteComment } from '../../redux/action/indexAction';
+import { operateArticle, getArticleList, deleteComment } from '../../redux/action/articleAction';
 import { Modal, Table, Pagination, Button, Icon, Popconfirm } from 'antd';
 import BreadcrumbCustom from '../../component/BreadcrumbCustom';
 import common from '../../services/common';

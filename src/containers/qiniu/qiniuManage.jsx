@@ -116,7 +116,7 @@ class App extends Component {
 	    			  multiple={true}
 	    			  showUploadList={false}
 	    			  accept="image/*"
-	    			  action="http://localhost:8989/api/upload"
+	    			  action="http://api.zhuweipeng.me/api/upload"
 					  onChange={this.handleUploadChange}
 					>
 				    	<Button type="primary">

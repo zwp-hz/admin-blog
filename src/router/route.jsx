@@ -66,9 +66,9 @@ const RouteConfig = (
 	<Router history={browserHistory}>
 		<Route path="/index" component={layout}>
 			<IndexRoute name="首页" getComponent={index} onEnter={requireAuth} />
-      <Route name="七牛资源管理" path="/qiniuManage" getComponent={qiniuManage} onEnter={requireAuth} />
+            <Route name="七牛资源管理" path="/qiniuManage" getComponent={qiniuManage} onEnter={requireAuth} />
 			<Route name="文章列表" path="/article/list" getComponent={articleList} onEnter={requireAuth} />
-			<Route path="/article/edit" getComponent={articleEdit} onEnter={requireAuth} />
+            <Route name="文章编辑" path="/article/edit" getComponent={articleEdit} onEnter={requireAuth} />
 		</Route>
 		<Route path="/login" component={Roots}>
 			<IndexRoute component={login} />

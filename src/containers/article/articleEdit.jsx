@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Remarkable from 'remarkable';
-import { operateArticle, getArticleList, getCategoryList, getTagList } from '../../redux/action/indexAction';
+import { operateArticle, getArticleList, getCategoryList, getTagList } from '../../redux/action/articleAction';
 import { Form, Input, Button, Tag, AutoComplete, Upload, Icon, Modal, message, Switch } from 'antd';
 import BreadcrumbCustom from '../../component/BreadcrumbCustom';
 import '../../style/markDown.css';
@@ -301,7 +301,7 @@ class Edit extends Component {
 				        >
 				        	<Upload
 				        	  accept="image/*"
-					          action="http://localhost:8989/api/upload"
+					          action="http://api.zhuweipeng.me/api/upload"
 					          listType="picture-card"
 					          fileList={fileList}
 					          onPreview={this.handleUploadPreview}
