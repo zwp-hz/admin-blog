@@ -45,7 +45,16 @@ class App extends Component {
     	if (info.file.status === 'done') {
 		    message.success('上传成功',0.5 , () => {
 		    	const { actions } = this.props;
-				actions.getQiniuList({});
+		    	let prefix = '';
+
+		    	for (let i of this.state.breadcrumbs) {
+					prefix += i.breadcrumbName === '七牛资源管理' ? '' : i.breadcrumbName;
+				}
+
+				actions.getQiniuList({
+					type: true,
+					prefix: prefix
+				});
 		    });
 	    } else if (info.file.status === 'error') {
 	      	message.error('上传失败');
@@ -116,7 +125,7 @@ class App extends Component {
 	    			  multiple={true}
 	    			  showUploadList={false}
 	    			  accept="image/*"
-	    			  action="http://api.zhuweipeng.me/api/upload"
+	    			  action="http://localhost:8989/api/upload"
 					  onChange={this.handleUploadChange}
 					>
 				    	<Button type="primary">
