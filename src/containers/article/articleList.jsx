@@ -64,7 +64,7 @@ class App extends Component {
 			render: (text, record) => (
 				<span>
 					<Link to={"/article/edit?id="+record._id+""}><Button><Icon type="edit" /></Button></Link>
-					<Popconfirm title="确定要删除吗?" onConfirm={() => showDeleteConfirm(record._id,'article')}>
+					<Popconfirm title="确定要删除吗?" onConfirm={() => showDeleteConfirm(record._id,'article',this)}>
 		              	<Button><Icon type="delete" /></Button>
 		            </Popconfirm>
 				</span>
@@ -82,8 +82,8 @@ class App extends Component {
 			title: 'IP',
 			dataIndex: 'ip'
 		},{
-			title: '邮箱',
-			dataIndex: "email",
+			title: '昵称',
+			dataIndex: "nickname",
 			render: text => text || '匿名'
 		},{
 			title: '评论时间',
