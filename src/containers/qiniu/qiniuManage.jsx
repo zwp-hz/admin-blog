@@ -5,7 +5,7 @@ import { getQiniuList, delete_qiniu } from '../../redux/action/qiniuAction';
 import { Modal, Table, Button, Icon, Popconfirm, Upload, message } from 'antd';
 import BreadcrumbCustom from '../../component/BreadcrumbCustom';
 import common from '../../services/common';
-const imgHost = 'http://image.zhuweipeng.me/';
+const imgHost = 'http://image.zhuweipeng.top/';
 
 class App extends Component {
 	constructor(props) {
@@ -125,7 +125,7 @@ class App extends Component {
 	    			  multiple={true}
 	    			  showUploadList={false}
 	    			  accept="image/*"
-	    			  action="http://localhost:8989/api/upload"
+	    			  action="http://api.zhuweipeng.top/api/upload"
 					  onChange={this.handleUploadChange}
 					>
 				    	<Button type="primary">

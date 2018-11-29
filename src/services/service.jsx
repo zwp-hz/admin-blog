@@ -1,7 +1,9 @@
 import $ from 'n-zepto';
 
-// const target = 'http://www.zhuweipeng.me:8989';
-const target = 'http://localhost:8989';
+const target = 'http://api.zhuweipeng.top:8989';
+// const target = 'http://localhost:8989';
+
+console.log(process.env.NODE_ENV)
 
 /**
  * $ajax
@@ -42,7 +44,7 @@ class service {
      * 登录验证
      */
     isLogin(params, success, fail) {
-        ajaxFn('/api/isLogin','GET',params,success,fail);
+        ajaxFn('/api/isLogin','POST',params,success,fail);
     }
 
     /**
@@ -53,38 +55,45 @@ class service {
     }
 
     /**
-     * 获取文章
+     * 获取文章列表
      */
     getArticleList(params, success, fail) {
-        ajaxFn('/api/getArticlesList','GET',params,success,fail);
+        ajaxFn('/api/getArticlesList','POST',params,success,fail);
+    }
+
+    /**
+     * 获取文章详情
+     */
+    getArticleDetail(params, success, fail) {
+        ajaxFn('/api/getArticlesDetail','POST',params,success,fail);
     }
 
     /**
      * 获取类别
      */
     getCategoryList(params, success, fail) {
-        ajaxFn('/api/getCategoryList','GET',params,success,fail);
+        ajaxFn('/api/getCategoryList','POST',params,success,fail);
     }
 
     /**
      * 获取标签
      */
     getTagList(params, success, fail) {
-        ajaxFn('/api/getTagsList','GET',params,success,fail);
+        ajaxFn('/api/getTagsList','POST',params,success,fail);
     }
 
     /**
      * 删除评论
      */
     deleteComment(params, success, fail) {
-        ajaxFn('/api/deleteComment','GET',params,success,fail);
+        ajaxFn('/api/deleteComment','POST',params,success,fail);
     }
 
     /**
      * 获取七牛资源列表
      */
     getQiniuList(params, success, fail) {
-        ajaxFn('/api/getQiniuList','GET',params,success,fail);
+        ajaxFn('/api/getQiniuList','POST',params,success,fail);
     }
 
     /**
