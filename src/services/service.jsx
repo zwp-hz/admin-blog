@@ -1,7 +1,6 @@
 import $ from 'n-zepto';
 
-const target = 'http://api.zhuweipeng.top:8989';
-// const target = 'http://localhost:8989';
+const target = 'http://www.zhuweipeng.top:89';
 
 console.log(process.env.NODE_ENV)
 
