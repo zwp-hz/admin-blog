@@ -16,9 +16,6 @@ const ajaxFn = (url, params, success, fail) => {
     type: "POST",
     dataType: "json",
     data: params,
-    xhrFields: {
-      withCredentials: true
-    },
     success: function(res) {
       if (success) success(res);
     },
