@@ -5,10 +5,10 @@ const target = 'http://www.zhuweipeng.top:89';
 
 /**
  * $ajax
- * @url     请求的地址
- * @params  请求的数据
- * @success 请求成功后的回调
- * @fail    请求失败后的回调
+ * @param {url}     请求的地址
+ * @param {params}  请求的数据
+ * @param {success} 请求成功后的回调
+ * @param {fail}    请求失败后的回调
  */
 const ajaxFn = (url, params, success, fail) => {
   $.ajax({
@@ -16,6 +16,9 @@ const ajaxFn = (url, params, success, fail) => {
     type: "POST",
     dataType: "json",
     data: params,
+    xhrFields: {
+      withCredentials: true
+    },
     success: function(res) {
       if (success) success(res);
     },
