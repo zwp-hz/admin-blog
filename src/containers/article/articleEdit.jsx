@@ -22,7 +22,7 @@ import {
 } from "antd";
 import BreadcrumbCustom from "../../component/BreadcrumbCustom";
 import "../../style/markDown.css";
-const imgHost = 'http://image.zhuweipeng.top/';
+const imgHost = "http://image.zhuweipeng.top/";
 const FormItem = Form.Item;
 const { TextArea } = Input;
 const md = new Remarkable();
@@ -61,17 +61,15 @@ class Edit extends Component {
     // id获取文章数据
     if (id) {
       actions.getArticleDetail({ _id: id, type: "edit" }, data => {
-				let fileList = [];
+        let fileList = [];
 
         // 遍历图片
-        for (let item of data.images_src) {
-          fileList.push({
-            uid: data._id,
-            name: item,
-            status: "done",
-            url: imgHost + item
-          });
-        }
+        fileList.push({
+          uid: data._id,
+          name: data.image_src,
+          status: "done",
+          url: imgHost + data.image_src
+        });
 
         // 设置文章数据
         this.setState({
@@ -430,7 +428,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       let param = {
         categories: state.category.data,
         tags: state.tag.data,
-        images_src: state.fileList.map(item => item.name),
+        image_src: state.fileList[0].name,
         content: state.textAreaValue,
         type: state._id ? "update" : "save"
       };
@@ -445,7 +443,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           param.release = values.release;
           // 数据验证
           for (let i in param) {
-            if (i !== "images_src") {
+            if (i !== "image_src") {
               switch (typeof param[i]) {
                 case "object":
                   if (param[i].length <= 0) {
