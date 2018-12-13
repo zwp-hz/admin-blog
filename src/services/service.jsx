@@ -1,7 +1,9 @@
 import $ from "n-zepto";
 
-const target = 'http://www.zhuweipeng.top:89';
-// const target = "http://localhost:8989";
+const target =
+  process.env.NODE_ENV === "production"
+    ? "http://www.zhuweipeng.top:89"
+    : "http://localhost:8989";
 
 /**
  * $ajax
