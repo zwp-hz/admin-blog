@@ -425,6 +425,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     // 提交update
     handleSubmit: (form, state, e) => {
+      if (!state.fileList[0]) {
+        message.warning("图片必传");
+      }
+
       let param = {
         categories: state.category.data,
         tags: state.tag.data,
