@@ -76,6 +76,13 @@ class service {
   getTagList(params, success, fail) {
     ajaxFn("/api/getTagsList", params, success, fail);
   }
+  
+  /**
+   * 删除标签
+   */
+  deleteTag(params, success, fail) {
+    ajaxFn("/api/deleteTag", params, success, fail);
+  }
 
   /**
    * 删除评论

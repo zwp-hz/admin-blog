@@ -41,6 +41,31 @@ const tagList = data => {
 };
 
 /**
+ * 删除标签
+ * @param {Object} params - 请求参数
+ * @param {Function} fn - 成功回调
+ */
+const deleteTag = (params, fn) => {
+  return dispatch => {
+    service.deleteTag(
+      params,
+      res => {
+        if (res.code === 0) {
+          Message.success(res.message);
+          if (fn) fn();
+        } else {
+          Message.error(res.message);
+        }
+      },
+      () => {
+        Message.error("接口请求错误");
+      }
+    );
+  };
+};
+
+
+/**
  * 添加、编辑、删除 文章
  * @param {_id}             文章id (编辑标示)
  * @param {title}           标题
@@ -197,6 +222,7 @@ const deleteComment = (params, fn) => {
 export {
   operateArticle,
   getArticleList,
+  deleteTag,
   getCategoryList,
   getArticleDetail,
   getTagList,

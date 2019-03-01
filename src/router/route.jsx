@@ -67,6 +67,28 @@ const articleEdit = (location, cb) => {
   );
 };
 
+// 分类列表
+const categoryList = (location, cb) => {
+  require.ensure(
+    [],
+    require => {
+      cb(null, require("../containers/article/categoryList").default);
+    },
+    "categoryList"
+  );
+};
+
+// 标签列表
+const tagList = (location, cb) => {
+  require.ensure(
+    [],
+    require => {
+      cb(null, require("../containers/article/tagList").default);
+    },
+    "tagList"
+  );
+};
+
 // 登录验证.  闭包中请添加next
 const requireAuth = (nextState, replace, next) => {
   if (sessionStorage.token) {
@@ -86,8 +108,8 @@ const requireAuth = (nextState, replace, next) => {
       }
     );
   } else {
-	replace({ pathname: "/login" });
-	next();
+    replace({ pathname: "/login" });
+    next();
   }
 };
 
@@ -111,6 +133,18 @@ const RouteConfig = (
         name="文章编辑"
         path="/article/edit"
         getComponent={articleEdit}
+        onEnter={requireAuth}
+      />
+      <Route
+        name="分类列表"
+        path="/article/categoryList"
+        getComponent={categoryList}
+        onEnter={requireAuth}
+      />
+      <Route
+        name="标签列表"
+        path="/article/tagList"
+        getComponent={tagList}
         onEnter={requireAuth}
       />
     </Route>

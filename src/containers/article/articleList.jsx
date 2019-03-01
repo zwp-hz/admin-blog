@@ -224,6 +224,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     showDeleteConfirm(id, type, self, index) {
       let article = self.state.active_article;
 
+
       if (type === "article") {
         actions.operateArticle({
           _id: id,
