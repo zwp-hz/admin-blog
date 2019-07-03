@@ -48,8 +48,8 @@ class App extends Component {
       },
       {
         title: "评论",
-        dataIndex: "review",
-        sorter: (a, b) => a.review.length - b.review.length,
+        dataIndex: "comments",
+        sorter: (a, b) => a.comments.length - b.comments.length,
         render: (text, record) => (
           <a
             onClick={e =>
@@ -113,13 +113,9 @@ class App extends Component {
         dataIndex: "city"
       },
       {
-        title: "IP",
-        dataIndex: "ip"
-      },
-      {
         title: "昵称",
-        dataIndex: "nickname",
-        render: text => text || "匿名"
+        dataIndex: "user_name",
+        render: text => text
       },
       {
         title: "评论时间",
@@ -183,7 +179,7 @@ class App extends Component {
                 {record.content}
               </p>
             )}
-            dataSource={active_article.review}
+            dataSource={active_article.comments}
           />
         </Modal>
       </div>
@@ -237,7 +233,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             commentId: id
           },
           () => {
-            article.review.splice(index, 1);
+            article.comments.splice(index, 1);
 
             self.setState({
               active_article: article
