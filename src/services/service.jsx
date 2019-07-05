@@ -76,7 +76,7 @@ class service {
   getTagList(params, success, fail) {
     ajaxFn("/api/getTagsList", params, success, fail);
   }
-  
+
   /**
    * 删除标签
    */
@@ -103,6 +103,20 @@ class service {
    */
   delete_qiniu(params, success, fail) {
     ajaxFn("/api/delete_qiniu", params, success, fail);
+  }
+
+  /**
+   * 获取留言列表
+   */
+  getGuestbook(params, success, fail) {
+    ajaxFn("/api/getGuestbookList", params, success, fail);
+  }
+
+  /**
+   * 删除留言
+   */
+  deleteGuestbook(params, success, fail) {
+    ajaxFn("/api/deleteGuestbook", params, success, fail);
   }
 }
 

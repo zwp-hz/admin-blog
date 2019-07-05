@@ -6,10 +6,6 @@ import { Table, Button, Icon, Popconfirm } from "antd";
 import BreadcrumbCustom from "../../component/BreadcrumbCustom";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { categoryList, showDeleteConfirm } = this.props;
 

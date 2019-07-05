@@ -89,6 +89,17 @@ const tagList = (location, cb) => {
   );
 };
 
+// 标签列表
+const guestbookBoard = (location, cb) => {
+  require.ensure(
+    [],
+    require => {
+      cb(null, require("../containers/guestbookBoard/guestbookBoard").default);
+    },
+    "guestbookBoard"
+  );
+};
+
 // 登录验证.  闭包中请添加next
 const requireAuth = (nextState, replace, next) => {
   if (sessionStorage.token) {
@@ -121,6 +132,12 @@ const RouteConfig = (
         name="七牛资源管理"
         path="/qiniuManage"
         getComponent={qiniuManage}
+        onEnter={requireAuth}
+      />
+      <Route
+        name="留言板"
+        path="/guestbookBoard"
+        getComponent={guestbookBoard}
         onEnter={requireAuth}
       />
       <Route

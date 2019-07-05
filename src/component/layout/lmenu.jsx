@@ -43,18 +43,6 @@ class Lmenu extends Component {
               <span>首页</span>
             </Link>
           </Menu.Item>
-          <Menu.Item key="user">
-            <Link to="/user">
-              <Icon type="user" />
-              <span>用户</span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="qiniuManage">
-            <Link to="/qiniuManage">
-              <Icon type="folder" />
-              <span>七牛资源管理</span>
-            </Link>
-          </Menu.Item>
           <SubMenu
             key="article"
             title={
@@ -74,6 +62,18 @@ class Lmenu extends Component {
               <Link to="/article/tagList">标签列表</Link>
             </Menu.Item>
           </SubMenu>
+          <Menu.Item key="qiniuManage">
+            <Link to="/qiniuManage">
+              <Icon type="folder" />
+              <span>七牛资源管理</span>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="guestbookBoard">
+            <Link to="/guestbookBoard">
+              <Icon type="message" />
+              <span>留言板</span>
+            </Link>
+          </Menu.Item>
           <Menu.Item key="setting">
             <Link to="/setting">
               <Icon type="setting" />
