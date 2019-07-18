@@ -353,7 +353,7 @@ class Edit extends Component {
             <FormItem {...formItemLayout} label="图片">
               <Upload
                 accept="image/*"
-                action="http://www.zhuweipeng.top:89/api/upload"
+                action="http://www.zhuweipeng.top:89/api/articleUpload"
                 listType="picture-card"
                 fileList={fileList}
                 onPreview={this.handleUploadPreview}
