@@ -22,7 +22,7 @@ import {
 } from "antd";
 import BreadcrumbCustom from "../../component/BreadcrumbCustom";
 import "../../style/markDown.css";
-const imgHost = "http://image.zhuweipeng.top/";
+const imgHost = "http://article.zhuweipeng.top/";
 const FormItem = Form.Item;
 const { TextArea } = Input;
 const md = new Remarkable();
