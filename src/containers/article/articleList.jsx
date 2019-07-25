@@ -118,6 +118,11 @@ class App extends Component {
         render: text => text
       },
       {
+        title: "邮箱",
+        dataIndex: "email",
+        render: text => text
+      },
+      {
         title: "评论时间",
         dataIndex: "creation_at",
         sorter: (a, b) => a.creation_at - b.creation_at,
